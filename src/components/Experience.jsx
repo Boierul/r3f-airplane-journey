@@ -1,6 +1,6 @@
 import React, {useLayoutEffect, useMemo, useRef} from "react";
 
-import {Float, PerspectiveCamera, Text, useScroll} from "@react-three/drei";
+import {Float, OrbitControls, PerspectiveCamera, Text, useScroll} from "@react-three/drei";
 
 import * as THREE from "three";
 import {Euler, Group, Vector3} from "three";
@@ -12,6 +12,8 @@ import {Airplane} from "./Airplane.jsx";
 import {useFrame} from "@react-three/fiber";
 import {Cloud_v2} from "./Cloud_v2.jsx";
 import {TextSection} from "./TextSection.jsx";
+import {fadeOnBeforeCompile, fadeOnBeforeCompileFlat} from "../utils/fadeMaterial.js";
+import {PaperAirplane} from "./PaperAirplane.jsx";
 
 const LINE_NR_POINTS = 1000;
 const CURVE_DISTANCE = 250;
@@ -472,7 +474,7 @@ as you explore the content of this journey`,
 
         return (
             <>
-                <directionalLight position={[0, 3, 1]} intensity={0.1}/>
+                <directionalLight position={[0, 3, 1]} intensity={0.5}/>
                 {/*<OrbitControls/>*/}
                 <group ref={cameraGroup}>
                     <Background backgroundColors={backgroundColors}/>
@@ -482,6 +484,10 @@ as you explore the content of this journey`,
                     <group ref={airplane}>
                         <Float floatIntensity={1} speed={1.5} rotationIntensity={0.5}>
                             <Airplane rotation-y={Math.PI / 2} scale={[0.2, 0.2, 0.2]} position-y={0.1}/>
+                            {/*<PaperAirplane rotation-y={Math.PI * 2}*/}
+                            {/*               rotation-x={Math.PI / 8}*/}
+                            {/*               scale={[0.005, 0.005, 0.005]}*/}
+                            {/*               position-y={-0.75}/>*/}
                         </Float>
                     </group>
                 </group>
@@ -510,6 +516,7 @@ as you explore the content of this journey`,
                             opacity={1}
                             transparent
                             envMapIntensity={2}
+                            onBeforeCompile={fadeOnBeforeCompile}
                         />
                     </mesh>
                 </group>
@@ -518,37 +525,6 @@ as you explore the content of this journey`,
                 {clouds.map((cloud, index) => (
                     <Cloud_v2 {...cloud} key={index}/>
                 ))}
-                {/*<Cloud_v2*/}
-                {/*    scale={[1, 1, 1.5]}*/}
-                {/*    position={[-3.5, -1.2, -7]}*/}
-                {/*/>*/}
-                {/*<Cloud_v2*/}
-                {/*    scale={[1, 1, 2]}*/}
-                {/*    position={[3.5, -.5, -12]}*/}
-                {/*    rotation-y={Math.PI}*/}
-                {/*/>*/}
-                {/*<Cloud_v2*/}
-                {/*    scale={[3.2, 2, 1.5]}*/}
-                {/*    position={[-3.5, 5, -45]}*/}
-                {/*    rotation-y={Math.PI / 3}*/}
-                {/*/>*/}
-                {/*<Cloud_v2*/}
-                {/*    scale={[5, 5, 5]}*/}
-                {/*    position={[3.5, -20.2, -52]}*/}
-                {/*/>*/}
-                {/*<Cloud_v2*/}
-                {/*    scale={[8, 8, 10]}*/}
-                {/*    rotation-y={Math.PI / 9}*/}
-                {/*    position={[24, 14.2, -200]}*/}
-                {/*/>*/}
-                {/*<Cloud_v2*/}
-                {/*    scale={[4, 4, 3]}*/}
-                {/*    position={[-18, -8.5, -213]}*/}
-                {/*/>*/}
-                {/*<Cloud_v2*/}
-                {/*    scale={[0.8, 0.8, 0.8]}*/}
-                {/*    position={[-1, -1.5, -192]}*/}
-                {/*/>*/}
             </>
         );
     }

@@ -1,5 +1,6 @@
 import {Text} from "@react-three/drei";
 import React from "react";
+import {fadeOnBeforeCompileFlat} from "../utils/fadeMaterial.js";
 
 export const TextSection = ({title, subtitle, ...props}) => {
     return (
@@ -14,6 +15,10 @@ export const TextSection = ({title, subtitle, ...props}) => {
                     font={"./fonts/Roslindale-Display-Bold.ttf"}
                 >
                     {title}
+                    <meshStandardMaterial
+                        color={"white"}
+                        onBeforeCompile={fadeOnBeforeCompileFlat}
+                    />
                 </Text>
             )}
             <Text
@@ -26,6 +31,10 @@ export const TextSection = ({title, subtitle, ...props}) => {
                 font={"./fonts/Bahnschrift.ttf"}
             >
                 {subtitle}
+                <meshStandardMaterial
+                    color={"white"}
+                    onBeforeCompile={fadeOnBeforeCompileFlat}
+                />
             </Text>
         </group>
     )
