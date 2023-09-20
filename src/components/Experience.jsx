@@ -28,27 +28,27 @@ const AIRPLANE_MAX_ANGLE = 35;
 const FRICTION_DISTANCE = 42;
 
 export const Experience = () => {
-    updateThemeColor("#3535cc");
-
-    /* ------------------------------------------ */
-
-    // Define a function to update the theme color (For Safari)
-    function updateThemeColor(color) {
-        if (window.innerWidth < 900) {
-            const meta = document.querySelector('meta[name="theme-color"]');
-            meta.setAttribute("content", color);
-
-            // Add a CSS transition to smoothly change the theme color
-            meta.style.backgroundColor = color;
-            // meta.style.backgroundImage =
-            meta.style.transition = "all cubic-bezier(0.19, 1, 0.22, 1) 2s";
-
-            // Remove the transition after it has finished
-            setTimeout(() => {
-                meta.style.transition = "all cubic-bezier(0.19, 1, 0.22, 1) .75s";
-            }, 2000);
-        }
-    }
+    // updateThemeColor("#3535cc");
+    //
+    // /* ------------------------------------------ */
+    //
+    // // Define a function to update the theme color (For Safari)
+    // function updateThemeColor(color) {
+    //     if (window.innerWidth < 900) {
+    //         const meta = document.querySelector('meta[name="theme-color"]');
+    //         meta.setAttribute("content", color);
+    //
+    //         // Add a CSS transition to smoothly change the theme color
+    //         meta.style.backgroundColor = color;
+    //         // meta.style.backgroundImage =
+    //         meta.style.transition = "all cubic-bezier(0.19, 1, 0.22, 1) 2s";
+    //
+    //         // Remove the transition after it has finished
+    //         setTimeout(() => {
+    //             meta.style.transition = "all cubic-bezier(0.19, 1, 0.22, 1) .75s";
+    //         }, 2000);
+    //     }
+    // }
 
 
     /* ------------------------------------------ */
