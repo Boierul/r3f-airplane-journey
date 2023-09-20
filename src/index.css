@@ -1,24 +1,347 @@
+@import url(https://db.onlinewebfonts.com/c/ba2b8f7a1a1b02d9bac815a0040395aa?family=RoslindaleDisplayCondensed+Bold);
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter&display=swap");
+/*@import url(https://db.onlinewebfonts.com/c/1ea925903e098f94f5c51566770a2da8?family=DM+Sans);*/
+@import url(https://db.onlinewebfonts.com/c/21e8998495e6b76f688ddb455fbcc00f?family=NewYork);
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap');
+
 #root {
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+    width: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.23);
+    background: rgba(255, 255, 255, 0.23);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: white;
-  height: 10%;
+    background: white;
+    height: 10%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.overlay-disable {
+    pointer-events: none;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    transition: opacity 2s ease-in-out;
+}
+
+.loader-disappear {
+    opacity: 0;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.intro-scroll {
+    opacity: 0;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    position: absolute;
+    top: 24vh;
+    filter: blur(2px);
+    transition: filter 0s ease-in-out 1s;
+}
+
+.intro-disappear .intro-scroll {
+    animation: fadeIn 1s ease-in-out 1.5s forwards;
+    filter: blur(0);
+    transition: filter 1s ease-in-out;
+}
+
+.overlay-scrolled .intro-scroll {
+    animation: fadeOut 1s ease-in-out forwards;
+    filter: blur(2px);
+    transition: filter 1s ease-in-out;
+}
+
+.intro-disappear .logo {
+    top: 42px;
+    transform: scale(0.25);
+    transform-origin: center top;
+}
+
+.intro-disappear .spinner {
+    opacity: 1;
+    animation: fadeOut 1s ease-in-out forwards;
+}
+
+.intro-disappear .explore {
+    animation: fadeOut 1s ease-in-out forwards;
+}
+
+.outro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 4s ease-in-out;
+}
+
+.outro-appear {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.outro-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.logo {
+    font-family: "NewYork", serif;
+    color: white;
+    font-size: 8rem;
+    font-weight: lighter;
+    letter-spacing: 0rem;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50vh;
+    animation: fadeUp 2.4s ease-in-out;
+    transition: all 2s ease-in-out;
+}
+
+.spinner {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin-right: -70px;
+    margin-top: -45px;
+    animation: fadeIn 2.4s ease-in-out 1.2s forwards;
+    opacity: 0;
+}
+
+.spinner-image {
+    width: 124px;
+    height: 124px;
+    background-size: contain;
+    background-image: url("/images/atmos.svg");
+    animation: rotate 10s linear infinite;
+}
+
+.explore {
+    padding: 0.5rem 2rem;
+    border: none;
+    font-family: "NewYork", serif;
+    font-size: 1rem;
+    font-weight: lighter;
+    color: #3535cc;
+    border-radius: 32px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 420px;
+    display: inline-block;
+    position: relative;
+    letter-spacing: 0px;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.42s ease-in-out;
+    animation: fadeIn 2.4s ease-in-out 2s forwards;
+    opacity: 0;
+}
+
+
+.explore:hover, .explore-again:hover {
+    color: white;
+}
+
+.explore:hover:before, .explore-again:hover:before {
+    width: 200%;
+    height: 300%;
+    border-radius: 100%;
+    filter: blur(2px);
+}
+
+.explore:before, .explore-again:before {
+    content: "";
+    background: #3535cc;
+    position: absolute;
+    width: 80%;
+    bottom: 0;
+    left: 50%;
+    height: 0%;
+    transition: 0.5s cubic-bezier(0.615, 0.81, 0.355, 0.92);
+    z-index: -1;
+    transform: translateX(-50%) translateY(50%);
+}
+
+.explore-again {
+    margin-top: 3rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-family: "NewYork", serif;
+    font-size: 1rem;
+    font-weight: lighter;
+    letter-spacing: 0.25rem;
+    color: #3535cc;
+    border-radius: 32px;
+    cursor: pointer;
+    display: inline-block;
+    display: inline-block;
+    position: relative;
+    letter-spacing: 0px;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.42s ease-in-out;
+    animation: fadeIn 2.4s ease-in-out 2s forwards;
+    opacity: 0;
+}
+
+.explore-again-disappear {
+    animation: fadeOut 2s ease-in-out forwards;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: -2rem;
+        padding: 0 1.5rem;
+        font-size: 2.25rem;
+        letter-spacing: 0.25rem;
+    }
+
+    .intro-disappear .logo {
+        top: 24px;
+        margin-top: 1rem;
+        transform: scale(0.5);
+        transform-origin: center top;
+    }
+
+    .spinner {
+        margin-right: 3.5rem;
+        /*margin-top: -2.5rem;*/
+    }
+
+    .spinner-image {
+        width: 64px;
+        height: 64px;
+    }
+
+    .outro {
+        width: auto;
+        padding: 0rem 2.5rem 0 2.5rem ;
+    }
+
+    .outro-text {
+        font-size: 1rem;
+    }
+
+    .explore {
+        font-size: 1.25rem;
+        margin-top: 10rem;
+    }
+
+    .explore-again {
+        font-size: 1.25rem;
+        margin-top: 7.5rem;
+
+    }
+
+    /*.spinner {*/
+    /*    position: absolute;*/
+    /*    right: 0px;*/
+    /*    top: 0px;*/
+    /*    margin-right: -70px;*/
+    /*    margin-top: -45px;*/
+    /*    animation: fadeIn 2.4s ease-in-out 1.2s forwards;*/
+    /*    opacity: 0;*/
+    /*}*/
+
+    /*.spinner-image {*/
+    /*    width: 124px;*/
+    /*    height: 124px;*/
+    /*    background-size: contain;*/
+    /*    background-image: url("/images/atmos.svg");*/
+    /*    animation: rotate 10s linear infinite;*/
+    /*}*/
+}
+
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+        filter: blur(9px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: none;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(-360deg);
+    }
 }
