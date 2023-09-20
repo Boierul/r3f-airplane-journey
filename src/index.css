@@ -15,18 +15,18 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 2px; !important;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.23);
+    background: rgba(255, 255, 255, 0.23); !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: white;
-    height: 10%;
+    background: white; !important;
+    height: 10%; !important;
 }
 
 .overlay {
@@ -35,10 +35,12 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
+    overflow: hidden;
 }
 
 .overlay-disable {
     pointer-events: none;
+    overflow: visible;
 }
 
 .loader {

@@ -28,31 +28,6 @@ const AIRPLANE_MAX_ANGLE = 35;
 const FRICTION_DISTANCE = 42;
 
 export const Experience = () => {
-    // updateThemeColor("#3535cc");
-
-    /* ------------------------------------------ */
-
-    // Define a function to update the theme color (For Safari)
-    function updateThemeColor(color) {
-        if (window.innerWidth < 900) {
-            const meta = document.querySelector('meta[name="theme-color"]');
-            meta.setAttribute("content", color);
-
-            // Add a CSS transition to smoothly change the theme color
-            meta.style.backgroundColor = color;
-            // meta.style.backgroundImage =
-            meta.style.transition = "all cubic-bezier(0.19, 1, 0.22, 1) 2s";
-
-            // Remove the transition after it has finished
-            setTimeout(() => {
-                meta.style.transition = "all cubic-bezier(0.19, 1, 0.22, 1) .75s";
-            }, 2000);
-        }
-    }
-
-
-    /* ------------------------------------------ */
-
     // Camera group of the plane
     const cameraGroup = useRef();
     //Camera group that will make the plane slow down when approaching a text section
@@ -529,17 +504,17 @@ as you explore the content of this journey`,
         timeline.current.to(backgroundColors.current, {
             duration: 1,
             colorA: "#3535cc",
+            colorB: "#32b5ba",
+        });
+        timeline.current.to(backgroundColors.current, {
+            duration: 1,
+            colorA: "#3535cc",
             colorB: "#ffad30",
         });
         timeline.current.to(backgroundColors.current, {
             duration: 1,
             colorA: "#3535cc",
-            colorB: "#5a3903",
-        });
-        timeline.current.to(backgroundColors.current, {
-            duration: 1,
-            colorA: "#3535cc",
-            colorB: "#424242",
+            colorB: "#9913dc",
         });
 
         timeline.current.pause();
