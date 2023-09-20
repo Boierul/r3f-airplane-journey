@@ -39,6 +39,9 @@ export const Experience = () => {
     // Last scroll offset (position of the scroll on the last frame)
     const lastScroll = useRef(0);
 
+    // Camera ref for responsive design
+    const cameraRef = useRef();
+
     // Variable with all the curve points
     const curvePoints = useMemo(
         () => [
@@ -323,6 +326,17 @@ as you explore the content of this journey`,
 
     // Will be called every frame to set up the logic
     useFrame((_state, delta) => {
+        // Responsive design
+        if (window.innerWidth > window.innerHeight) {
+            // LANDSCAPE
+            cameraRef.current.fov = 30;
+            cameraRef.current.position.z = 5;
+        } else {
+            // PORTRAIT
+            cameraRef.current.fov = 80;
+            cameraRef.current.position.z = 2;
+        }
+
             // Set the hasScroll to true when the user first scrolls
             if (lastScroll.current <= 0 && scroll.offset > 0) {
                 setHasScroll(true);
@@ -570,7 +584,7 @@ as you explore the content of this journey`,
                 <group ref={cameraGroup}>
                     <Background backgroundColors={backgroundColors}/>
                     <group ref={cameraRail}>
-                        <PerspectiveCamera position={[0, 0, 5]} fov={30} makeDefault/>
+                        <PerspectiveCamera ref={cameraRef} position={[0, 0, 5]} fov={30} makeDefault/>
                     </group>
                     <group ref={airplane}>
                         <Float floatIntensity={1} speed={1.5} rotationIntensity={0.5}>
