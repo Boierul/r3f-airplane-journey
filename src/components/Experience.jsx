@@ -528,18 +528,18 @@ as you explore the content of this journey`,
 
         timeline.current.to(backgroundColors.current, {
             duration: 1,
-            colorA: "#6f35cc",
+            colorA: "#3535cc",
             colorB: "#ffad30",
         });
         timeline.current.to(backgroundColors.current, {
             duration: 1,
-            colorA: "#424242",
-            colorB: "#ffcc00",
+            colorA: "#3535cc",
+            colorB: "#5a3903",
         });
         timeline.current.to(backgroundColors.current, {
             duration: 1,
-            colorA: "#81318b",
-            colorB: "#55ab8f",
+            colorA: "#3535cc",
+            colorB: "#424242",
         });
 
         timeline.current.pause();

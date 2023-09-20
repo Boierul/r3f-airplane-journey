@@ -277,32 +277,13 @@ body {
 
     .explore {
         font-size: 1.25rem;
-        margin-top: 10rem;
+        margin-top: 10.5rem;
     }
 
     .explore-again {
         font-size: 1.25rem;
         margin-top: 7.5rem;
-
     }
-
-    /*.spinner {*/
-    /*    position: absolute;*/
-    /*    right: 0px;*/
-    /*    top: 0px;*/
-    /*    margin-right: -70px;*/
-    /*    margin-top: -45px;*/
-    /*    animation: fadeIn 2.4s ease-in-out 1.2s forwards;*/
-    /*    opacity: 0;*/
-    /*}*/
-
-    /*.spinner-image {*/
-    /*    width: 124px;*/
-    /*    height: 124px;*/
-    /*    background-size: contain;*/
-    /*    background-image: url("/images/atmos.svg");*/
-    /*    animation: rotate 10s linear infinite;*/
-    /*}*/
 }
 
 
