@@ -39,7 +39,7 @@ function Overlay() {
                     </div>
                 )
             }
-            <div className={`outro ${end ? "outro-appear" : ""}`}>
+            <div className={`outro ${end ? "outro-appear" : "outro-disappear"}`}>
                 <p className="outro-text">
                     Thank you for taking this journey with me. <br/>
                     I hope you enjoyed it as much as I did making it.

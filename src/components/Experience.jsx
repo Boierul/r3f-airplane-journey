@@ -14,6 +14,7 @@ import {Cloud_v2} from "./Cloud_v2.jsx";
 import {TextSection} from "./TextSection.jsx";
 import {fadeOnBeforeCompile} from "../utils/fadeMaterial.js";
 import {usePlay} from "../context/Play.jsx";
+import {Speed} from "./Speed.jsx";
 
 const LINE_NR_POINTS = 1000;
 const CURVE_DISTANCE = 250;
@@ -582,6 +583,7 @@ as you explore the content of this journey`,
                 <directionalLight position={[0, 3, 1]} intensity={0.5}/>
                 {/*<OrbitControls/>*/}
                 <group ref={cameraGroup}>
+                    <Speed/>
                     <Background backgroundColors={backgroundColors}/>
                     <group ref={cameraRail}>
                         <PerspectiveCamera ref={cameraRef} position={[0, 0, 5]} fov={30} makeDefault/>

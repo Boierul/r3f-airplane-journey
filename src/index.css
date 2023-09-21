@@ -122,6 +122,11 @@ body {
     pointer-events: all;
 }
 
+.outro-disappear {
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
 .outro-text {
     display: flex;
     align-items: center;
@@ -234,7 +239,7 @@ body {
 }
 
 .explore-again-disappear {
-    animation: fadeOut 2s ease-in-out forwards;
+    animation: fadeOut 1.25s ease-in-out forwards;
 }
 
 /* RESPONSIVE */
@@ -279,7 +284,7 @@ body {
 
     .explore {
         font-size: 1.25rem;
-        margin-top: 10.5rem !important;
+        margin-top: 12rem;
     }
 
     .explore-again {
